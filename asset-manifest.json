@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/KloopDigests/static/css/main.5739ad41.chunk.css",
+    "main.js": "/KloopDigests/static/js/main.9fc9dbf3.chunk.js",
+    "main.js.map": "/KloopDigests/static/js/main.9fc9dbf3.chunk.js.map",
+    "runtime-main.js": "/KloopDigests/static/js/runtime-main.23d59720.js",
+    "runtime-main.js.map": "/KloopDigests/static/js/runtime-main.23d59720.js.map",
+    "static/js/2.82ff2ad5.chunk.js": "/KloopDigests/static/js/2.82ff2ad5.chunk.js",
+    "static/js/2.82ff2ad5.chunk.js.map": "/KloopDigests/static/js/2.82ff2ad5.chunk.js.map",
+    "static/js/3.88fc26b5.chunk.js": "/KloopDigests/static/js/3.88fc26b5.chunk.js",
+    "static/js/3.88fc26b5.chunk.js.map": "/KloopDigests/static/js/3.88fc26b5.chunk.js.map",
+    "index.html": "/KloopDigests/index.html",
+    "static/css/main.5739ad41.chunk.css.map": "/KloopDigests/static/css/main.5739ad41.chunk.css.map",
+    "static/js/2.82ff2ad5.chunk.js.LICENSE.txt": "/KloopDigests/static/js/2.82ff2ad5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.23d59720.js",
+    "static/js/2.82ff2ad5.chunk.js",
+    "static/css/main.5739ad41.chunk.css",
+    "static/js/main.9fc9dbf3.chunk.js"
+  ]
+}
