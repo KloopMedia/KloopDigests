@@ -9,7 +9,19 @@ const Digest = () => {
     const {date}: { date: string } = useParams()
     const [parsedDoc, setParsedDoc] = useState<any>(null)
 
-    const query = gql(`
+    let query = gql(`
+        query MyQuery($date: date) {
+          mass_media_digest_kg(where: {digest_period: {_eq: "latest"}, digest_date: {_eq: $date}}) {
+            digest_date
+            digest_period
+            digest_text
+            digest_type
+          }
+        }
+    `)
+
+    if (date) {
+        query = gql(`
         query MyQuery($date: date) {
           mass_media_digest_kg(where: {digest_type: {_eq: "combined"}, digest_date: {_eq: $date}}) {
             digest_date
@@ -19,12 +31,12 @@ const Digest = () => {
           }
         }
     `)
+    }
 
     const {
         loading,
         error,
-        data,
-        refetch
+        data
     } = useQuery(query, {
         variables: {
             date: date ?? TODAY
@@ -34,10 +46,13 @@ const Digest = () => {
 
     useEffect(() => {
         console.log(data)
-        if (data) {
+        if (data && data.mass_media_digest_kg.length > 0) {
             const {digest_text} = data.mass_media_digest_kg[0];
 
             setParsedDoc(digest_text)
+        } else {
+            const d = date ?? TODAY
+            setParsedDoc(`No Digest for ${d}`)
         }
     }, [data])
 

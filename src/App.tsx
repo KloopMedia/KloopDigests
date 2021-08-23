@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import Digest from "./components/Digest";
 
 const App = () => (
     <div className="App">
-        <Router>
+        <Router basename={"/KloopDigests"}>
             <Switch>
                 <Route exact path="/:date">
                     <Digest/>
