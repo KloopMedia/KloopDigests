@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/KloopDigests/static/css/main.5739ad41.chunk.css",
-    "main.js": "/KloopDigests/static/js/main.371b6b01.chunk.js",
-    "main.js.map": "/KloopDigests/static/js/main.371b6b01.chunk.js.map",
+    "main.js": "/KloopDigests/static/js/main.0e0ddddc.chunk.js",
+    "main.js.map": "/KloopDigests/static/js/main.0e0ddddc.chunk.js.map",
     "runtime-main.js": "/KloopDigests/static/js/runtime-main.d2f0fee9.js",
     "runtime-main.js.map": "/KloopDigests/static/js/runtime-main.d2f0fee9.js.map",
     "static/js/2.b5092c43.chunk.js": "/KloopDigests/static/js/2.b5092c43.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d2f0fee9.js",
     "static/js/2.b5092c43.chunk.js",
     "static/css/main.5739ad41.chunk.css",
-    "static/js/main.371b6b01.chunk.js"
+    "static/js/main.0e0ddddc.chunk.js"
   ]
 }
