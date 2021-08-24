@@ -5,8 +5,8 @@ import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import Digest from "./components/Digest";
 
 const App = () => (
-    <div className="App">
-        <Router basename={"/KloopDigests"}>
+    <div>
+        <Router>
             <Switch>
                 <Route exact path="/:date">
                     <Digest/>
