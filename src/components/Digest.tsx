@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {gql, useQuery} from '@apollo/client';
 import {useHistory, useParams} from "react-router-dom";
-import {format, isValid} from "date-fns"; // theme css file
+import {format, parse, isValid, startOfYesterday} from "date-fns"; // theme css file
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
@@ -13,10 +13,12 @@ import ruLocale from "date-fns/locale/ru";
 
 const Digest = () => {
     const TODAY = format(new Date(), 'yyyy-MM-dd')
+    console.log(format(startOfYesterday(), 'yyyy-MM-dd'))
+    const YESTERDAY = format(startOfYesterday(), 'yyyy-MM-dd')
     const {date}: { date: string } = useParams()
     const history = useHistory()
     const [parsedDoc, setParsedDoc] = useState<any>(null)
-    const [selectedDate, setSelectedDate] = React.useState<Date>(new Date(date ?? TODAY));
+    const [selectedDate, setSelectedDate] = React.useState<Date>(new Date());
 
     let query = gql(`
         query MyQuery($date: date) {
@@ -42,12 +44,32 @@ const Digest = () => {
     `)
     }
 
+    let queryDate = TODAY
+    if (date && (date.toLowerCase() === 'yesterday' || isValid(parse(date, 'yyyy-MM-dd', new Date())))) {
+        if (date.toLowerCase() === 'yesterday') {
+            queryDate = YESTERDAY
+        } else {
+            queryDate = date
+        }
+    }
+
+    useEffect(() => {
+        if (date && (date.toLowerCase() === 'yesterday' || isValid(parse(date, 'yyyy-MM-dd', new Date())))) {
+            if (date.toLowerCase() === 'yesterday') {
+                queryDate = YESTERDAY
+            } else {
+                queryDate = date
+            }
+        }
+        setSelectedDate(new Date(queryDate))
+    }, [queryDate])
+
     const {
         loading,
         data
     } = useQuery(query, {
         variables: {
-            date: date ?? TODAY
+            date: queryDate
         },
         notifyOnNetworkStatusChange: true,
     });
